@@ -1,3 +1,4 @@
 module.exports = {
-  baseUrl: '/gist/'
+  baseUrl: 'https://ponchicken.github.io/gotgr',
+  productionSourceMap: false
 }
