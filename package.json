@@ -7,6 +7,10 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "gh-deploy": "^0.2.3",
+    "node-sass": "^4.9.4",
+    "random-words": "^1.1.0",
+    "sass-loader": "^7.1.0",
     "vue": "^2.5.17"
   },
   "devDependencies": {

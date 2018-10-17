@@ -1,28 +1,60 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <Catalogue :data="catalogue"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Catalogue from './components/Catalogue.vue'
+import Header from './components/Header.vue'
+import randomWords from 'random-words'
+
 
 export default {
   name: 'app',
+  data: function () {
+    return {
+      catalogue: generateCatalogue({ count: 12 }) 
+    }
+  },
   components: {
-    HelloWorld
+    Header,
+    Catalogue
   }
 }
+
+function generateCatalogue({count}) {
+  let result = []
+  for (let i=0; i<count; i++) result.push(generateRandData())
+  console.log(result)
+  return result
+}
+
+function generateRandData() {
+  return {
+    decision: randomWords(1).join(''),
+    category: randomWords(1).join(''),
+    slp: randomWords(3).join(' '),
+    upc: randomWords(3).join(' '),
+    price: randNumber(9999),
+    imageUrl: `https://placekitten.com/200/200?image=${randNumber(17)}`,
+    canVoid: randBool(),
+    canReprint: randBool(),
+    isVoided: randBool(),
+  }
+}
+
+function randBool() {
+  return Math.random() >= 0.5
+}
+
+function randNumber(max) {
+  return Math.floor(Math.random()*max)
+}
+
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import url('./assets/styles/style.scss');
 </style>
