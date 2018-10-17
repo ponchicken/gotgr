@@ -31,8 +31,7 @@ export default {
     flex-wrap: wrap;
     justify-content: flex-start;
     &>*{
-      flex: 1 0 100px;
-      max-width: 300px;
+      flex: 0 0 200px;
       margin: 0 10px 10px;
       text-align: center;
     }

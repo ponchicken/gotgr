@@ -65,7 +65,7 @@ export default {
     text-align-last: left;
   }
   &-param{
-        text-align: left;
+    text-align: left;
     &>span:first-child{
       margin-right: 5px;
       color: #777;
